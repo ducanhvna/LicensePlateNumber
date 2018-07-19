@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicencePlateRecognition", "LicencePlateRecognition\LicencePlateRecognition.csproj", "{0FEC28A9-77D9-49E7-94A8-7D9A2B6BEB13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibOCR", "LibOCR\LibOCR.csproj", "{21AD9CD3-476E-44A9-A912-BF03934B91DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibOCRTests", "LibOCRTests\LibOCRTests.csproj", "{D8EB48B6-BE59-4011-8346-D3C7296D0F10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibCameraManagement", "LibCameraManagement\LibCameraManagement.csproj", "{5A0FCAF0-ADFB-43DF-BB49-8BDFECAE0F53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FEC28A9-77D9-49E7-94A8-7D9A2B6BEB13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEC28A9-77D9-49E7-94A8-7D9A2B6BEB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEC28A9-77D9-49E7-94A8-7D9A2B6BEB13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEC28A9-77D9-49E7-94A8-7D9A2B6BEB13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21AD9CD3-476E-44A9-A912-BF03934B91DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21AD9CD3-476E-44A9-A912-BF03934B91DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21AD9CD3-476E-44A9-A912-BF03934B91DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21AD9CD3-476E-44A9-A912-BF03934B91DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8EB48B6-BE59-4011-8346-D3C7296D0F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8EB48B6-BE59-4011-8346-D3C7296D0F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8EB48B6-BE59-4011-8346-D3C7296D0F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8EB48B6-BE59-4011-8346-D3C7296D0F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0FCAF0-ADFB-43DF-BB49-8BDFECAE0F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0FCAF0-ADFB-43DF-BB49-8BDFECAE0F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0FCAF0-ADFB-43DF-BB49-8BDFECAE0F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0FCAF0-ADFB-43DF-BB49-8BDFECAE0F53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4EC1A31-5418-4CF3-9824-81E144DC3214}
+	EndGlobalSection
+EndGlobal

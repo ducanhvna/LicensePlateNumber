@@ -1,0 +1,40 @@
+﻿<Window x:Class="LicencePlateRecognition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LicencePlateRecognition"
+        xmlns:mainUc="clr-namespace:LicencePlateRecognition.Views.Main"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <!--Display Area-->
+        <TabControl>
+            <!--Control Pannel TabItem-->
+            <TabItem Header="Control Panel">
+                <mainUc:UserControlControlPanel></mainUc:UserControlControlPanel>
+            </TabItem>
+            
+            <!--Camera Tab Items-->
+            <TabItem Header="Camera">
+                <mainUc:UserCamera></mainUc:UserCamera>
+            </TabItem>
+        </TabControl>
+        
+        <!--Button Area-->
+        <Grid Grid.Row="1">
+            <DockPanel HorizontalAlignment="Center">
+                <!--Capture Licence Plate-->
+                <Button Width="150" Height="50" HorizontalAlignment="Center" Margin="20,0">Capture</Button>
+                
+                <!--Store Infomation-->
+                <Button Width="150" Height="50" HorizontalAlignment="Center" Margin="20,0">Store</Button>
+            </DockPanel>
+        </Grid>
+        
+    </Grid>
+</Window>
