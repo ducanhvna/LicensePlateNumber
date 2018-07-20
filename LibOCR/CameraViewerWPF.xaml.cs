@@ -21,16 +21,27 @@ namespace LibOCR
     /// </summary>
     public partial class CameraViewerWPF : UserControl
     {
+        /// <summary>
+        /// Setup related library VLC
+        /// </summary>
+        /// <param name="directory">VLC 32 bit folder path in computer</param>
         public static void ConfigVLC(string directory)
         {
             //replace this path with an appropriate one
             //new DirectoryInfo(@"c:\Program Files (x86)\VideoLAN\VLC\");
+            // Assign directory tor variable vlc Directory
             vlcDirectory = new DirectoryInfo(directory);
         }
         private static DirectoryInfo vlcDirectory;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CameraViewerWPF()
         {
+            // InitializeComponent
             InitializeComponent();
+
             Focusable = true;
         }
 
@@ -42,14 +53,24 @@ namespace LibOCR
             }
         }
         #region Config camera
-        public void configCamera(string uri)
+
+        /// <summary>
+        /// ConfigCamera
+        /// </summary>
+        /// <param name="uri"></param>
+        public void ConfigCamera(string uri)
         {
+            // Set uri to carmerURi
             cameraURi = new Uri(uri);
         }
         #endregion
 
         #region Show camera
         private Uri cameraURi = null;
+
+        /// <summary>
+        /// ShowCamera
+        /// </summary>
         public void ShowCamera()
         {
             if (vlcDirectory != null)
@@ -63,6 +84,30 @@ namespace LibOCR
                 {
                     vlcPlayer.MediaPlayer.Play(cameraURi);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Take snap shot of camera and save to filePath
+        /// </summary>
+        /// <param name="filePath">file Path</param>
+        /// <returns>
+        /// CameraState
+        /// </returns>
+        public CameraState Capture(string filePath)
+        {
+            try
+            {
+                // Call TakeSnapshot
+                vlcPlayer.MediaPlayer.TakeSnapshot(filePath);
+
+                // Success
+                return CameraState.Success;
+            }
+            catch
+            {
+                // Failure
+                return CameraState.CaptureError;
             }
         }
         #endregion

@@ -34,13 +34,13 @@ namespace LicencePlateRecognition.Views.Main
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            cameraViewer1.configCamera("rtsp://192.168.0.101/onvif1");
+            cameraViewer1.ConfigCamera("rtsp://192.168.0.101/onvif1");
             cameraViewer1.ShowCamera();
 
-            cameraViewer2.configCamera("rtsp://192.168.0.101/onvif1");
+            cameraViewer2.ConfigCamera("rtsp://192.168.0.101/onvif1");
             cameraViewer2.ShowCamera();
 
-            cameraViewer3.configCamera("rtsp://192.168.0.101/onvif1");
+            cameraViewer3.ConfigCamera("rtsp://192.168.0.101/onvif1");
             cameraViewer3.ShowCamera();
         }
 

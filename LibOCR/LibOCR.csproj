@@ -71,10 +71,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CameraViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CameraViewer.Designer.cs">
+      <DependentUpon>CameraViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="CameraViewerWPF.xaml.cs">
       <DependentUpon>CameraViewerWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="Common.cs" />
     <Compile Include="LicensePlateDetector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +97,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CameraViewer.resx">
+      <DependentUpon>CameraViewer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets')" />
