@@ -1,0 +1,24 @@
+﻿<Window x:Class="ConfiguratorTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:v="clr-namespace:ConfiguratorTool.View"
+        xmlns:local="clr-namespace:ConfiguratorTool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl>
+            <TabItem Header="BaseConfig">
+                <v:BaseConfigView></v:BaseConfigView>
+            </TabItem>
+            <TabItem Header="Segment Char">
+                <v:SegmentCharView></v:SegmentCharView>
+            </TabItem>
+            <TabItem Header="Result">
+                <v:ResultView></v:ResultView>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
