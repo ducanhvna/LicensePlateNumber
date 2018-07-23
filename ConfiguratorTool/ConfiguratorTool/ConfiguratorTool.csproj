@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\InternalShare.cs" />
+    <Compile Include="Helpers\ITabItemViewModel.cs" />
     <Compile Include="Model\ConfiguratorModel.cs" />
     <Compile Include="ViewModel\ViewModelBaseConfig.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />

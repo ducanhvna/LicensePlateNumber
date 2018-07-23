@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ConfiguratorTool.View"
+             xmlns:vm ="clr-namespace:ConfiguratorTool.ViewModel"
+             DataContext="{DynamicResource viewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:ViewModelSegmentChar x:Key="viewModel"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -16,7 +21,7 @@
         
         <!--License Plate Image Area-->
         <Grid Grid.Column="1">
-            <Image></Image>
+            <Image Source="{Binding RawImage}"></Image>
         </Grid>
     </Grid>
 </UserControl>

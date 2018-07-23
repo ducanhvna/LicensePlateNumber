@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:v="clr-namespace:ConfiguratorTool.View"
         xmlns:local="clr-namespace:ConfiguratorTool"
+        xmlns:helpers="clr-namespace:ConfiguratorTool.Helpers"
+        xmlns:helper="clr-namespace:CommonNS.Helpers;assembly=LibCommon"
+        xmlns:vm="clr-namespace:ConfiguratorTool.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        DataContext="{DynamicResource mainViewModel}"
+        x:Name="mainWindow">
+    <Window.Resources>
+        <vm:ViewModelMainWindow x:Key="mainViewModel"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30px"/>
@@ -17,7 +25,7 @@
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
                     <Button Command="New" Content="New" />
-                    <Button Command="{Binding ElementName=baseConfigTabItem, Path=DataContext.OpenImageCommand}" Content="Open" />
+                    <Button Command="{Binding OpenImageCommand}" Content="Open" />
                     <Button Command="Save" Content="Save" />
                 </ToolBar>
                 <!--<ToolBar>
@@ -31,13 +39,19 @@
         <!--Controler Tab-->
         <TabControl Grid.Row="1">
             <TabItem Header="BaseConfig">
-                <v:BaseConfigView x:Name="baseConfigTabItem"></v:BaseConfigView>
+                <v:BaseConfigView x:Name="baseConfigTabItem"
+                    helpers:InternalShare.ImageShare="{Binding ElementName=mainWindow, Path=DataContext.RawImage}"
+                    helpers:InternalShare.DataShare="{Binding ElementName=mainWindow, Path=DataContext.ModelData}">
+                </v:BaseConfigView>
             </TabItem>
             <TabItem Header="Segment Char">
-                <v:SegmentCharView></v:SegmentCharView>
+                <v:SegmentCharView 
+                    helpers:InternalShare.ImageShare="{Binding ElementName=mainWindow, Path=DataContext.RawImage}"
+                    helpers:InternalShare.DataShare="{Binding ElementName=mainWindow, Path=DataContext.ModelData}">
+                </v:SegmentCharView>
             </TabItem>
             <TabItem Header="Result">
-                <v:ResultView></v:ResultView>
+                <v:ResultView ></v:ResultView>
             </TabItem>
         </TabControl>
     </Grid>
