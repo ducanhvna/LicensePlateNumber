@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfiguratorTool", "Configu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibCommon", "LibCommon\LibCommon.csproj", "{2FF2A8F5-06C4-431A-A533-9A3525B933E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessing", "ImageProcessing\ImageProcessing.csproj", "{F8E9AEAE-00B8-4A46-8792-CC2EA064F48D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2FF2A8F5-06C4-431A-A533-9A3525B933E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF2A8F5-06C4-431A-A533-9A3525B933E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF2A8F5-06C4-431A-A533-9A3525B933E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E9AEAE-00B8-4A46-8792-CC2EA064F48D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E9AEAE-00B8-4A46-8792-CC2EA064F48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E9AEAE-00B8-4A46-8792-CC2EA064F48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E9AEAE-00B8-4A46-8792-CC2EA064F48D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
