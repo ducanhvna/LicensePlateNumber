@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ConfiguratorTool.View.BaseConfigEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ConfiguratorTool.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ItemsControl Grid.Column="1" ItemsSource="{Binding ListLicensePlateArea}">
+            
+            <ItemsControl.Background>
+                <ImageBrush ImageSource="{Binding RawImage}"/>
+                <!--<Image Source="{Binding RawImage}"></Image>-->
+            </ItemsControl.Background>
+            <ItemsControl.ItemsPanel>
+          
+            <ItemsPanelTemplate>
+                    <Grid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid DataContext="{Binding}" Background="Aqua" Width="{Binding Width}" Height="{Binding Height}">
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+    </Grid>
+</UserControl>

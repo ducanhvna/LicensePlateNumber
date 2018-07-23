@@ -22,6 +22,7 @@ namespace ConfiguratorTool.ViewModel
         private ObservableCollection<ObjectContainer> m_Properties;
         private ObjectContainer m_SelectedContainer;
         private RelayCommand m_SelectedContainerCommand;
+        private ObservableCollection<Rect> m_ListArea = null;
 
         /// <summary>
         /// Constructor
@@ -33,7 +34,45 @@ namespace ConfiguratorTool.ViewModel
 
             // Initialize SelectContainer command
             SelectContainerCommand = new RelayCommand(SelectContainer);
+
+            // Dumy List License Plate Area
+            DumyListLicensePlateArea();
         }
+
+        #region List License Plate Number Area
+        /// <summary>
+        /// Dumy list area
+        /// </summary>
+        private void DumyListLicensePlateArea()
+        {
+            ListLicensePlateArea = new ObservableCollection<Rect>()
+            {
+                new Rect(10,10, 30,40),
+
+                new Rect(80,80, 30,40)
+            };
+            var abc = new Rect(80, 80, 30, 40);
+        }
+        /// <summary>
+        /// List License Plate Area Postion
+        /// </summary>
+        public ObservableCollection<Rect> ListLicensePlateArea
+        {
+            get
+            {
+                return m_ListArea;
+            }
+            set
+            {
+                if(m_ListArea !=value)
+                {
+                    m_ListArea = value;
+                    RaisePropertyChanged("ListLicensePlateArea");
+                }
+            }
+        }
+        #endregion
+
         #region Selected Container Area
 
         /// <summary>

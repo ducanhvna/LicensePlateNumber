@@ -51,8 +51,11 @@
         </Grid>
         
         <!--Image Grid-->
+      
         <Grid Grid.Column="1">
-            <Image Source="{Binding RawImage}"></Image>    
+            <local:BaseConfigEditView>
+                
+            </local:BaseConfigEditView>
         </Grid>
     </Grid>
 </UserControl>

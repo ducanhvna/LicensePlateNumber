@@ -61,9 +61,13 @@
     <Compile Include="Helpers\ITabItemViewModel.cs" />
     <Compile Include="Model\ConfiguratorModel.cs" />
     <Compile Include="ViewModel\ViewModelBaseConfig.cs" />
+    <Compile Include="ViewModel\ViewModelBaseConfigEditView.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />
     <Compile Include="ViewModel\ViewModelResult.cs" />
     <Compile Include="ViewModel\ViewModelSegmentChar.cs" />
+    <Compile Include="View\BaseConfigEditView.xaml.cs">
+      <DependentUpon>BaseConfigEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BaseConfigView.xaml.cs">
       <DependentUpon>BaseConfigView.xaml</DependentUpon>
     </Compile>
@@ -88,6 +92,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\BaseConfigEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\BaseConfigView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

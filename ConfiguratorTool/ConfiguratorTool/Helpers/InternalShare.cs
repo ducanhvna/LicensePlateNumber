@@ -123,5 +123,6 @@ namespace ConfiguratorTool.Helpers
             target.SetValue(ImageShareProperty, value);
         }
         #endregion
+
     }
 }
