@@ -9,9 +9,29 @@
         Title="MainWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30px"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button Command="New" Content="New" />
+                    <Button Command="{Binding ElementName=baseConfigTabItem, Path=DataContext.OpenImageCommand}" Content="Open" />
+                    <Button Command="Save" Content="Save" />
+                </ToolBar>
+                <!--<ToolBar>
+                    <Button Command="Cut" Content="Cut" />
+                    <Button Command="Copy" Content="Copy" />
+                    <Button Command="Paste" Content="Paste" />
+                </ToolBar>-->
+            </ToolBarTray>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
+        <!--Controler Tab-->
+        <TabControl Grid.Row="1">
             <TabItem Header="BaseConfig">
-                <v:BaseConfigView></v:BaseConfigView>
+                <v:BaseConfigView x:Name="baseConfigTabItem"></v:BaseConfigView>
             </TabItem>
             <TabItem Header="Segment Char">
                 <v:SegmentCharView></v:SegmentCharView>

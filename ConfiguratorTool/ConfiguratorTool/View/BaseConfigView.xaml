@@ -3,10 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:ConfiguratorTool.ViewModel"
              xmlns:local="clr-namespace:ConfiguratorTool.View"
              mc:Ignorable="d" 
+             DataContext="{DynamicResource baseViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:ViewModelBaseConfig x:Key="baseViewModel"/>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <!--Configurator Panel-->
+        <Grid></Grid>
+        
+        <!--Image Grid-->
+        <Grid Grid.Column="1">
+            <Image Source="{Binding RawImage}"></Image>    
+        </Grid>
     </Grid>
 </UserControl>

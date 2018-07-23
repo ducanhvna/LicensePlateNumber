@@ -7,6 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <!--Control Panel Area-->
+        <Grid></Grid>
+        
+        <!--License Plate Image Area-->
+        <Grid Grid.Column="1">
+            <Image></Image>
+        </Grid>
     </Grid>
 </UserControl>

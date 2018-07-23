@@ -23,6 +23,7 @@ namespace ConfiguratorTool
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }
