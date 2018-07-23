@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Domain\Entry.cs" />
+    <Compile Include="Domain\IContainer.cs" />
+    <Compile Include="Domain\ObjectContainer.cs" />
     <Compile Include="Helpers\InternalShare.cs" />
     <Compile Include="Helpers\ITabItemViewModel.cs" />
     <Compile Include="Model\ConfiguratorModel.cs" />
@@ -63,6 +66,9 @@
     <Compile Include="ViewModel\ViewModelSegmentChar.cs" />
     <Compile Include="View\BaseConfigView.xaml.cs">
       <DependentUpon>BaseConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RawImageOutlinePropertyView.xaml.cs">
+      <DependentUpon>RawImageOutlinePropertyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ResultView.xaml.cs">
       <DependentUpon>ResultView.xaml</DependentUpon>
@@ -83,6 +89,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\BaseConfigView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RawImageOutlinePropertyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

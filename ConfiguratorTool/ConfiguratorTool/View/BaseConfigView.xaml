@@ -5,19 +5,50 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:ConfiguratorTool.ViewModel"
              xmlns:local="clr-namespace:ConfiguratorTool.View"
+             xmlns:domain="clr-namespace:ConfiguratorTool.Domain"
+             xmlns:hepers="clr-namespace:ConfiguratorTool.Helpers"
              mc:Ignorable="d" 
              DataContext="{DynamicResource baseViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <vm:ViewModelBaseConfig x:Key="baseViewModel"/>
     </UserControl.Resources>
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <!--Configurator Panel-->
-        <Grid></Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--Properties Tree Area-->
+            <Grid>
+                <TreeView ItemsSource="{Binding RawImageProperties}" SelectedItemChanged="TreeView_SelectedItemChanged">
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type domain:ObjectContainer}" ItemsSource="{Binding SubGroups}">
+                            <TextBlock Text="{Binding Name}">
+                                <!--<TextBlock.InputBindings>
+                                    <MouseBinding Command="{Binding ElementName=mainGrid, Path=DataContext.SelectContainerCommand}" 
+                                                  CommandParameter="{Binding}"
+                                                  MouseAction="LeftClick" />
+                                </TextBlock.InputBindings>-->
+                            </TextBlock>
+                        </HierarchicalDataTemplate>
+                    </TreeView.Resources>
+                </TreeView>
+            </Grid>
+            <!--Properties View Area-->
+            <Grid Grid.Row="1">
+                <GroupBox Header="Properties">
+                    <Grid Name="propertyViewContent">
+                        
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>
         
         <!--Image Grid-->
         <Grid Grid.Column="1">

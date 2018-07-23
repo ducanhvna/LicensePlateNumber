@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfiguratorTool.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,38 @@ namespace ConfiguratorTool.View
     /// </summary>
     public partial class BaseConfigView : UserControl
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public BaseConfigView()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// SetPropertyView
+        /// </summary>
+        /// <param name="propertyView"></param>
+        public void SetPropertyView(UserControl propertyView)
+        {
+            propertyViewContent.Children.Clear();
+            if(propertyView != null)
+            {
+                propertyViewContent.Children.Add(propertyView);
+            }
+        }
+
+        private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            var treeView = sender as TreeView;
+            if (treeView != null)
+            {
+                ObjectContainer selectedItem = treeView.SelectedItem as ObjectContainer;
+                if(selectedItem != null)
+                {
+                    SetPropertyView(selectedItem.PropertyView);
+                }
+            }
         }
     }
 }

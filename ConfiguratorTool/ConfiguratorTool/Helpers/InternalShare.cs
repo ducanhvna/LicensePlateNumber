@@ -1,4 +1,6 @@
-﻿using ConfiguratorTool.Model;
+﻿using ConfiguratorTool.Domain;
+using ConfiguratorTool.Model;
+using ConfiguratorTool.View;
 using ConfiguratorTool.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,35 @@ namespace ConfiguratorTool.Helpers
 {
     internal static class InternalShare
     {
+        #region Selected Item Property
+        internal static readonly DependencyProperty SelectedItemProperty =
+            DependencyProperty.RegisterAttached(
+                "SelectedItem",
+                typeof(ObjectContainer),
+                typeof(InternalShare),
+                new PropertyMetadata(SelectedItemChange));
+
+        private static void SelectedItemChange(DependencyObject d, 
+            DependencyPropertyChangedEventArgs e)
+        {
+            var window = d as BaseConfigView;
+            if(window != null)
+            {
+                var selectedItem = e.NewValue as ObjectContainer;
+                window.SetPropertyView(selectedItem.PropertyView);
+            }
+        }
+
+        /// <summary>
+        /// SetSelected Object Container
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="value"></param>
+        internal static void SetSelectedItem(UserControl target, ObjectContainer value)
+        {
+            target.SetValue(SelectedItemProperty, value);
+        }
+        #endregion
         #region Model Data Share
         /// <summary>
         /// DataShareProperty
