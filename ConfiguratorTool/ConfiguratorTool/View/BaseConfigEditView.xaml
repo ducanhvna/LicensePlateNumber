@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:ConfiguratorTool.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:RectangleToThicknessConverter x:Key="RectangleConverter"/>
+    </UserControl.Resources>
     <Grid>
         <ItemsControl Grid.Column="1" ItemsSource="{Binding ListLicensePlateArea}">
             
@@ -14,14 +17,18 @@
                 <!--<Image Source="{Binding RawImage}"></Image>-->
             </ItemsControl.Background>
             <ItemsControl.ItemsPanel>
-          
+               
             <ItemsPanelTemplate>
                     <Grid/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid DataContext="{Binding}" Background="Aqua" Width="{Binding Width}" Height="{Binding Height}">
+                    <Grid DataContext="{Binding}" Background="Aqua" Width="{Binding Width}" Height="{Binding Height}"
+                          Margin="{Binding Converter={StaticResource RectangleConverter}}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left">
+                        
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

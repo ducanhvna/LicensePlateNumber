@@ -74,6 +74,7 @@
     <Compile Include="View\RawImageOutlinePropertyView.xaml.cs">
       <DependentUpon>RawImageOutlinePropertyView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RectangleToThicknessConverter.cs" />
     <Compile Include="View\ResultView.xaml.cs">
       <DependentUpon>ResultView.xaml</DependentUpon>
     </Compile>

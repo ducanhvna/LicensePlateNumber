@@ -49,9 +49,8 @@ namespace ConfiguratorTool.ViewModel
             {
                 new Rect(10,10, 30,40),
 
-                new Rect(80,80, 30,40)
+                new Rect(60,10, 30,40)
             };
-            var abc = new Rect(80, 80, 30, 40);
         }
         /// <summary>
         /// List License Plate Area Postion
