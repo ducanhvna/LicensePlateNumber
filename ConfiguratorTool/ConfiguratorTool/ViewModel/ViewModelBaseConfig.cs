@@ -198,5 +198,89 @@ namespace ConfiguratorTool.ViewModel
                 }
             }
         }
+
+        private int frametop;
+        private int framebottom;
+        private int frameleft;
+        private int frameright;
+
+        public string ImagePath { get; set; }
+        public int ImageHeight { get; }
+        public int ImageWidth { get; }
+
+        /// <summary>
+        /// Frame Top
+        /// </summary>
+        public int FrameTop
+        {
+            get { return frametop; }
+            set
+            {
+                if (frametop != value)
+                {
+                    frametop = value;
+                    RaisePropertyChanged("FrameTop");
+                }
+            }
+        }
+
+        /// <summary>
+        /// From Bottom
+        /// </summary>
+        public int FrameBottom
+        {
+            get
+            {
+                return framebottom;
+            }
+            set
+            {
+                if (framebottom != value)
+                {
+                    framebottom = value;
+                    RaisePropertyChanged("FrameBottom");
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// Frame Left
+        /// </summary>
+        public int FrameLeft
+        {
+            get
+            {
+                return frameleft;
+            }
+            set
+            {
+                if (frameleft != value)
+                {
+                    frameleft = value;
+                    RaisePropertyChanged("FrameLeft");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Frame right
+        /// </summary>
+        public int FrameRight
+        {
+            get
+            {
+
+                return frameright;
+            }
+            set
+            {
+                if (frameright != value)
+                {
+                    frameright = value;
+                    RaisePropertyChanged("FrameRight");
+                }
+            }
+        }
     }
 }
