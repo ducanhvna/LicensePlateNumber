@@ -28,25 +28,42 @@
             </Grid.RowDefinitions>
             <!--Properties Tree Area-->
             <Grid>
-                <TreeView ItemsSource="{Binding RawImageProperties}" SelectedItemChanged="TreeView_SelectedItemChanged">
+                <!--<TreeView ItemsSource="{Binding RawImageProperties}" SelectedItemChanged="TreeView_SelectedItemChanged">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type domain:ObjectContainer}" ItemsSource="{Binding SubGroups}">
                             <TextBlock Text="{Binding Name}">
-                                <!--<TextBlock.InputBindings>
+                                --><!--<TextBlock.InputBindings>
                                     <MouseBinding Command="{Binding ElementName=mainGrid, Path=DataContext.SelectContainerCommand}" 
                                                   CommandParameter="{Binding}"
                                                   MouseAction="LeftClick" />
-                                </TextBlock.InputBindings>-->
+                                </TextBlock.InputBindings>--><!--
                             </TextBlock>
                         </HierarchicalDataTemplate>
-                    </TreeView.Resources>
-                </TreeView>
+                    </TreeView.Resources>-->
+                <!--</TreeView>-->
+                <StackPanel Margin="10">
+                    <DockPanel>
+                        <Label Width="120">Angle</Label>
+                        <TextBox Text="{Binding Angle}"></TextBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Width="120">X1,Y1</Label>
+                        <TextBox Text="{Binding X1}" Width="50"></TextBox>
+                        <TextBox Text="{Binding Y1}" Width="50"></TextBox>
+                    </DockPanel>
+
+                    <DockPanel>
+                        <Label Width="120">X2,Y2</Label>
+                        <TextBox Text="{Binding X2}" Width="50"></TextBox>
+                        <TextBox Text="{Binding Y2}" Width="50"></TextBox>
+                    </DockPanel>
+                </StackPanel>
             </Grid>
             <!--Properties View Area-->
             <Grid Grid.Row="1">
                 <GroupBox Header="Properties">
                     <Grid Name="propertyViewContent">
-                        
+                        <Image Source="{Binding LicencePlate}"/>
                     </Grid>
                 </GroupBox>
             </Grid>
@@ -55,7 +72,7 @@
         <!--Image Grid-->
 
         <Grid Grid.Column="1">
-            <Image Source="{Binding RawImage}"/>
+            <Image Source="{Binding RotatedImage}"/>
             <ItemsControl Grid.Column="1" ItemsSource="{Binding ListLicensePlateArea}">
                 <ItemsControl.Background>
                     <ImageBrush ImageSource="{Binding RawImage}"/>

@@ -13,6 +13,13 @@ using ConfiguratorTool.Helpers;
 using ConfiguratorTool.Domain;
 using System.Collections.ObjectModel;
 using ConfiguratorTool.View;
+using System.Windows.Controls;
+//using System.Windows.Media;
+using System.Windows.Shapes;
+using openalprnet;
+using System.Drawing;
+using System.Drawing.Imaging;
+using Rectangle = System.Drawing.Rectangle;
 
 namespace ConfiguratorTool.ViewModel
 {
@@ -195,6 +202,9 @@ namespace ConfiguratorTool.ViewModel
                 {
                     m_image = value;
                     RaisePropertyChanged("RawImage");
+                    Angle = 0;
+                    rotatedImage = m_image;
+                    CropImage();
                 }
             }
         }
@@ -203,6 +213,146 @@ namespace ConfiguratorTool.ViewModel
         private int framebottom;
         private int frameleft;
         private int frameright;
+        private BitmapSource rotatedImage;
+        private int angle;
+        private BitmapSource licenceplate;
+
+        public BitmapSource RotatedImage
+        {
+            get
+            {
+                return rotatedImage;
+            }
+            set
+            {
+                if(rotatedImage != value)
+                {
+                    rotatedImage = value;
+                    RaisePropertyChanged("RotatedImage");
+                    CropImage();
+                }
+            }
+        }
+
+        public int Angle
+        {
+            get
+            {
+                return angle;
+            }
+            set
+            {
+                if (angle != value)
+                {
+                    RaisePropertyChanged("Angle");
+                    //DoTheRotation();
+                }
+            }
+        }
+        public BitmapSource LicencePlate
+        {
+            get { return licenceplate; }
+            set
+            {
+                if(licenceplate != value)
+                {
+                    licenceplate = value;
+                    RaisePropertyChanged("LicencePlate");
+                    Regconize();
+                }
+            }
+        }
+        Bitmap GetBitmap(BitmapSource source)
+        {
+            Bitmap bmp = new Bitmap(
+              source.PixelWidth,
+              source.PixelHeight,
+              PixelFormat.Format32bppPArgb);
+            BitmapData data = bmp.LockBits(
+              new Rectangle(System.Drawing.Point.Empty, bmp.Size),
+              ImageLockMode.WriteOnly,
+              PixelFormat.Format32bppPArgb);
+            source.CopyPixels(
+              Int32Rect.Empty,
+              data.Scan0,
+              data.Height * data.Stride,
+              data.Stride);
+            bmp.UnlockBits(data);
+            return bmp;
+        }
+        private void Regconize()
+        {
+            var alpr = new AlprNet("us", "openalpr.conf.defaults", "runtime_data");
+            if (!alpr.IsLoaded())
+            {
+                Console.WriteLine("OpenAlpr failed to load!");
+                return;
+            }
+            // Optionally apply pattern matching for a particular region
+            alpr.DefaultRegion = "vn2";
+
+            AlprResultsNet results = alpr.Recognize(GetBitmap( LicencePlate));
+            int i = 0;
+            foreach (var result in results.Plates)
+            {
+                Console.WriteLine("Plate {0}: {1} result(s)", i++, result.TopNPlates.Count);
+                Console.WriteLine("  Processing Time: {0} msec(s)", result.ProcessingTimeMs);
+                foreach (var plate in result.TopNPlates)
+                {
+                    Console.WriteLine("  - {0}\t Confidence: {1}\tMatches Template: {2}", plate.Characters,
+                                      plate.OverallConfidence, plate.MatchesTemplate);
+                }
+            }
+
+
+            //var alpr2 = new AlprNet("us", "openalpr.conf", "runtime_data");
+            //if (!alpr2.IsLoaded())
+            //{
+            //    Console.WriteLine("OpenAlpr failed to load!");
+            //    return;
+            //}
+            //// Optionally apply pattern matching for a particular region
+            //alpr2.DefaultRegion = "vn";
+
+            ////var results2 = alpr2.Recognize("123.jpg");
+            //var results2 = alpr2.Recognize("77.jpg");
+            //i = 0;
+            //foreach (var result in results2.Plates)
+            //{
+            //    Console.WriteLine("Plate {0}: {1} result(s)", i++, result.TopNPlates.Count);
+            //    Console.WriteLine("  Processing Time: {0} msec(s)", result.ProcessingTimeMs);
+            //    foreach (var plate in result.TopNPlates)
+            //    {
+            //        Console.WriteLine("  - {0}\t Confidence: {1}\tMatches Template: {2}", plate.Characters,
+            //                          plate.OverallConfidence, plate.MatchesTemplate);
+            //    }
+            //}
+        }
+
+        public void CropImage()
+        {
+            // Create an Image element.
+            //Image croppedImage = new Image();
+            //croppedImage.Width = 200;
+            //croppedImage.Margin = new Thickness(5);
+
+            // Create a CroppedBitmap based off of a xaml defined resource.
+            CroppedBitmap cb = new CroppedBitmap(
+               RawImage,
+               new Int32Rect(30, 20, 105, 50));       //select region rect
+            LicencePlate = cb;                 //set image source to cropped
+        }
+        //public void DoTheRotation()
+        //{
+        //    var image = new Canvas();
+        //    image.Width = RawImage.PixelWidth;
+        //    image.Height = RawImage.PixelHeight;
+        //    image.Background = new ImageBrush(RawImage);
+        //    image.RenderTransform = new RotateTransform(angle);
+        //    RenderTargetBitmap rtb = new RenderTargetBitmap(RawImage.PixelWidth, RawImage.PixelHeight, RawImage.DpiX, RawImage.DpiY, RawImage.Format);
+        //    rtb.Render(image);
+        //    RotatedImage = rtb;
+        //}
 
         public string ImagePath { get; set; }
         public int ImageHeight { get; }
