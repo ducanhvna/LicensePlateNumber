@@ -88,6 +88,21 @@ namespace LibOCR
             }
         }
 
+        public void ShowCamera(string username, string password)
+        {
+            if (vlcDirectory != null)
+            {
+                vlcPlayer.VlcLibDirectory = vlcDirectory;
+
+                vlcPlayer.EndInit();
+                var uriWithCred = new UriBuilder(cameraURi) { UserName = username, Password = password }.Uri;
+                if (cameraURi != null)
+                {
+                    vlcPlayer.Play(uriWithCred);
+                }
+            }
+        }
+
         /// <summary>
         /// Take snap shot of camera and save to filePath
         /// </summary>
